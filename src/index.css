@@ -34,7 +34,14 @@ h1 {
   font-size: 3.2em;
   line-height: 1.1;
 }
-
+input{
+  background: #fff;
+  border-color: #000;
+}
+select{
+  background: #fff;
+    color: #000;
+}
 button {
   border-radius: 8px;
   border: 1px solid transparent;
