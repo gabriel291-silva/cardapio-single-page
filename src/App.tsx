@@ -150,7 +150,6 @@ function App() {
           src="https://storage.googleapis.com/udois-261822.appspot.com/imagens-templates/thumbnail_08200720220325623da567de0a0.webp"
           alt=""
         />
-        <h1>Lista de Produtos</h1>
         <button className="button-minicart-open" onClick={openCartPopup}>
           <img
             className="button-minicart-icon"
@@ -159,6 +158,8 @@ function App() {
           />
         </button>
       </div>
+      <span className="title-page">Lista de Produtos</span>
+
       <div className="product-list">
         {products.map((product: Product) => (
           <div key={product.id} className="product-card">
@@ -167,13 +168,13 @@ function App() {
               src={product.image}
               alt={product.name}
             />
-            <div>
-            <h2>{product.name}</h2>
-            <p>{product.description}</p>
-            <p>Preço: R$ {product.price.toFixed(2)}</p>
-            <button onClick={() => openProductPopup(product)}>
-              Ver Detalhes
-            </button>
+            <div className="product-card-infos-container">
+              <span className="product-card-title">{product.name}</span>
+              <span className="produt-card-description ">{product.description}</span>
+              <span className="product-card-price">Preço: R$ {product.price.toFixed(2)}</span>
+              <button className="product-card-btn-view-more" onClick={() => openProductPopup(product)}>
+                Ver Detalhes
+              </button>
             </div>
           </div>
         ))}
@@ -188,27 +189,30 @@ function App() {
               </button>
             </div>
             <img src={selectedProduct!.image} alt="" />
-            <h2>{selectedProduct!.name}</h2>
-            <p>{selectedProduct!.description}</p>
-            <p>Preço: R$ {selectedProduct!.price.toFixed(2)}</p>
-            <label htmlFor="quantity">Quantidade:</label>
-            <input
-              type="number"
-              id="quantity"
-              value={selectedQuantity}
-              onChange={(e) => setSelectedQuantity(parseInt(e.target.value))}
-            />
-            <label htmlFor="observations">Observações:</label>
-            <textarea
-              id="observations"
-              value={selectedProduct!.observations}
-              onChange={(e) =>
-                setSelectedProduct({
-                  ...selectedProduct!,
-                  observations: e.target.value,
-                })
-              }
-            ></textarea>
+            <div className="container-popup-informations">
+              <h2>{selectedProduct!.name}</h2>
+              <span>{selectedProduct!.description}</span>
+              <span>Preço: R$ {selectedProduct!.price.toFixed(2)}</span>
+              <label htmlFor="quantity">Quantidade:</label>
+              <input
+                type="number"
+                id="quantity"
+                value={selectedQuantity}
+                onChange={(e) => setSelectedQuantity(parseInt(e.target.value))}
+              />
+              <label htmlFor="observations">Observações:</label>
+              <textarea
+                id="observations"
+                value={selectedProduct!.observations}
+                onChange={(e) =>
+                  setSelectedProduct({
+                    ...selectedProduct!,
+                    observations: e.target.value,
+                  })
+                }
+              ></textarea>
+            </div>
+            
             <button onClick={addToCart}>Adicionar ao Carrinho</button>
           </div>
         </div>
