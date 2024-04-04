@@ -37,6 +37,7 @@ h1 {
 input{
   background: #fff;
   border-color: #000;
+  color: #000;
 }
 select{
   background: #fff;
