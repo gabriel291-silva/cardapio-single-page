@@ -167,12 +167,14 @@ function App() {
               src={product.image}
               alt={product.name}
             />
+            <div>
             <h2>{product.name}</h2>
             <p>{product.description}</p>
             <p>Preço: R$ {product.price.toFixed(2)}</p>
             <button onClick={() => openProductPopup(product)}>
               Ver Detalhes
             </button>
+            </div>
           </div>
         ))}
       </div>
