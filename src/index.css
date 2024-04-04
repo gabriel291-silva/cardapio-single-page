@@ -42,6 +42,10 @@ select{
   background: #fff;
     color: #000;
 }
+textarea{
+  background: #fff;
+    color: #000;
+}
 button {
   border-radius: 8px;
   border: 1px solid transparent;
